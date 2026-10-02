@@ -1,0 +1,722 @@
+{
+  "schema": 1,
+  "kind": "local-look-resource-binding-candidates",
+  "availability_exhaustive": false,
+  "resource_hashes": "reference metadata only; selected caller-provided cubes are loaded lazily",
+  "source_blend_domain": "encoded-srgb-after-output-conversion",
+  "source_blend_operand": "original-unfiltered-source",
+  "conversion_clip": false,
+  "groups": [
+    {
+      "id": "original",
+      "title": "Original"
+    },
+    {
+      "id": "color",
+      "title": "Color"
+    },
+    {
+      "id": "monochrome",
+      "title": "Monochrome"
+    },
+    {
+      "id": "artist",
+      "title": "Artist"
+    }
+  ],
+  "looks": [
+    {
+      "id": "original",
+      "title": "原图",
+      "default_strength": 100,
+      "adjustable": false,
+      "group": "original",
+      "primary_cube": null,
+      "secondary_cube": null,
+      "input_space": "srgb",
+      "output_space": "srgb",
+      "recipe": "identity",
+      "strength_rule": "identity",
+      "preview": false,
+      "verified_strengths": [
+        100
+      ],
+      "preview_unverified_strengths": false,
+      "filter_options": [],
+      "confirmed_filter_options": [],
+      "official_description_token": null,
+      "source_group": "original",
+      "preview_default": false
+    },
+    {
+      "id": "standard",
+      "title": "Standard",
+      "default_strength": 100,
+      "adjustable": true,
+      "group": "color",
+      "primary_cube": {
+        "filename": "Tyson_Leica_Base_V3_DP3_DP3_Release.cube",
+        "sha256": "39eacd2c77264d1eefd5ae8cdf4d16acf9075299f0f45a8561f5388fc02b7f3f",
+        "grid_size": 64,
+        "restore_half": true
+      },
+      "secondary_cube": null,
+      "input_space": "display-p3",
+      "output_space": "display-p3",
+      "recipe": "source_to_primary",
+      "strength_rule": "product_source_blend",
+      "preview": true,
+      "verified_strengths": [],
+      "preview_unverified_strengths": true,
+      "filter_options": [],
+      "confirmed_filter_options": [],
+      "official_description_token": "Base",
+      "source_group": "primaryColor",
+      "preview_default": true
+    },
+    {
+      "id": "vivid",
+      "title": "Vivid",
+      "default_strength": 100,
+      "adjustable": true,
+      "group": "color",
+      "primary_cube": {
+        "filename": "Leica_Vivid_sRGB_sRGB_Release.cube",
+        "sha256": "dc51b41dd79fa040623c28b1903917fbe86b0a8a48030a715f86063c8f9fce92",
+        "grid_size": 64,
+        "restore_half": true
+      },
+      "secondary_cube": null,
+      "input_space": "srgb",
+      "output_space": "srgb",
+      "recipe": "source_to_primary",
+      "strength_rule": "product_source_blend",
+      "preview": true,
+      "verified_strengths": [
+        100
+      ],
+      "preview_unverified_strengths": true,
+      "filter_options": [],
+      "confirmed_filter_options": [],
+      "official_description_token": "Vivid",
+      "source_group": "primaryColor",
+      "preview_default": false
+    },
+    {
+      "id": "natural",
+      "title": "Natural",
+      "default_strength": 100,
+      "adjustable": true,
+      "group": "color",
+      "primary_cube": {
+        "filename": "Leica-Filter_Natural_DP3_DP3_Release.cube",
+        "sha256": "f6eae9cae3e22c455c3381cb546f7f5abb832c4210e7a3372449045a14698b1d",
+        "grid_size": 64,
+        "restore_half": true
+      },
+      "secondary_cube": null,
+      "input_space": "display-p3",
+      "output_space": "display-p3",
+      "recipe": "source_to_primary",
+      "strength_rule": "product_source_blend",
+      "preview": true,
+      "verified_strengths": [],
+      "preview_unverified_strengths": true,
+      "filter_options": [],
+      "confirmed_filter_options": [],
+      "official_description_token": "Natural",
+      "source_group": "primaryColor",
+      "preview_default": true
+    },
+    {
+      "id": "monochrome_natural",
+      "title": "Monochrome Natural",
+      "default_strength": 100,
+      "adjustable": true,
+      "group": "monochrome",
+      "primary_cube": {
+        "filename": "Leica-Filter_Monochrome_DP3_DP3_Release.cube",
+        "sha256": "35127a427c57a84abeb51b4a359a378c3afa9b88b713283924d2c4be48a27a22",
+        "grid_size": 64,
+        "restore_half": true
+      },
+      "secondary_cube": null,
+      "input_space": "display-p3",
+      "output_space": "display-p3",
+      "recipe": "source_to_primary",
+      "strength_rule": "product_source_blend",
+      "preview": true,
+      "verified_strengths": [],
+      "preview_unverified_strengths": true,
+      "filter_options": [
+        "red",
+        "orange",
+        "yellow",
+        "green",
+        "blue"
+      ],
+      "confirmed_filter_options": [],
+      "official_description_token": "MonochromeNatural",
+      "source_group": "Monochrome",
+      "preview_default": true
+    },
+    {
+      "id": "monochrome_high_contrast",
+      "title": "Monochrome High Contrast",
+      "default_strength": 100,
+      "adjustable": true,
+      "group": "monochrome",
+      "primary_cube": {
+        "filename": "Leica_Monochrome_High_Contrast_sRGB_sRGB_Release.cube",
+        "sha256": "b69232c4bdff08387a568f6e9a11452788955da9588d408a728690e9c3353fc1",
+        "grid_size": 64,
+        "restore_half": true
+      },
+      "secondary_cube": null,
+      "input_space": "srgb",
+      "output_space": "srgb",
+      "recipe": "source_to_primary",
+      "strength_rule": "product_source_blend",
+      "preview": true,
+      "verified_strengths": [],
+      "preview_unverified_strengths": true,
+      "filter_options": [
+        "red",
+        "orange",
+        "yellow",
+        "green",
+        "blue"
+      ],
+      "confirmed_filter_options": [],
+      "official_description_token": "MonochromeHighContrast",
+      "source_group": "Monochrome",
+      "preview_default": true
+    },
+    {
+      "id": "steve",
+      "title": "Steve McCurry",
+      "default_strength": 50,
+      "adjustable": true,
+      "group": "artist",
+      "primary_cube": {
+        "filename": "29_Leica-Looks_SteveMcCurry_sRGB_sRGB_TESTFLIGHT-LUT-3.cube",
+        "sha256": "977fd7273c17f088dcea06aa47b0def24725a4874e76d63a1dcad0d8e5ea2b90",
+        "grid_size": 17,
+        "restore_half": false
+      },
+      "secondary_cube": {
+        "filename": "29_Leica-Looks_SteveMcCurry_sRGB_sRGB_TESTFLIGHT-LUT-1.cube",
+        "sha256": "1ba546c7691bac7a3d52dca0aafade3d0a7a20742c1b43946cb4fcda1a88ba83",
+        "grid_size": 17,
+        "restore_half": false
+      },
+      "input_space": "srgb",
+      "output_space": "srgb",
+      "recipe": "secondary_to_primary",
+      "strength_rule": "observed_endpoint_mix",
+      "preview": false,
+      "verified_strengths": [
+        0,
+        25,
+        50,
+        75,
+        100
+      ],
+      "preview_unverified_strengths": false,
+      "filter_options": [],
+      "confirmed_filter_options": [],
+      "official_description_token": "SteveMcCurry",
+      "source_group": "Artist",
+      "preview_default": false
+    },
+    {
+      "id": "eternal",
+      "title": "Eternal",
+      "default_strength": 100,
+      "adjustable": true,
+      "group": "color",
+      "primary_cube": {
+        "filename": "Leica-Looks_Eternal_sRGB_sRGB_Release.cube",
+        "sha256": "9c9c166943c575e515988c8b081c23432420db9a349fd9abc6decea1697c7350",
+        "grid_size": 64,
+        "restore_half": false
+      },
+      "secondary_cube": null,
+      "input_space": "srgb",
+      "output_space": "srgb",
+      "recipe": "source_to_primary",
+      "strength_rule": "product_source_blend",
+      "preview": true,
+      "verified_strengths": [
+        100
+      ],
+      "preview_unverified_strengths": true,
+      "filter_options": [],
+      "confirmed_filter_options": [],
+      "official_description_token": "Eternal",
+      "source_group": "primaryColor",
+      "preview_default": false
+    },
+    {
+      "id": "greg",
+      "title": "Greg Williams",
+      "default_strength": 100,
+      "adjustable": true,
+      "group": "artist",
+      "primary_cube": {
+        "filename": "Tyson_GregWilliams_Sepia100_DP3_DP3_Release.cube",
+        "sha256": "cbbea50a70090a2460264f7cf7197ff8f46499dafcf6203156cdec0064b86444",
+        "grid_size": 64,
+        "restore_half": true
+      },
+      "secondary_cube": {
+        "filename": "Tyson_GregWilliams_Sepia0_DP3_DP3_Release.cube",
+        "sha256": "59be67ea44b5ad663395ac5409016f150f9b081584f6f0308cd805abc133327a",
+        "grid_size": 64,
+        "restore_half": true
+      },
+      "input_space": "display-p3",
+      "output_space": "display-p3",
+      "recipe": "secondary_to_primary",
+      "strength_rule": "candidate_endpoint_mix",
+      "preview": true,
+      "verified_strengths": [],
+      "preview_unverified_strengths": true,
+      "filter_options": [
+        "red",
+        "orange",
+        "yellow",
+        "green",
+        "blue"
+      ],
+      "confirmed_filter_options": [],
+      "official_description_token": "GW",
+      "source_group": "Artist",
+      "preview_default": true
+    },
+    {
+      "id": "hundred_years",
+      "title": "Leica I Model A (1925)",
+      "default_strength": 100,
+      "adjustable": true,
+      "group": "monochrome",
+      "primary_cube": {
+        "filename": "Tyson_100yearsMono1A_sRGB_sRGB_Release.cube",
+        "sha256": "206c67553a7bacfdca8e56e370a51e39740dd83d59844bb0c279d07df8cb3f8d",
+        "grid_size": 64,
+        "restore_half": true
+      },
+      "secondary_cube": null,
+      "input_space": "srgb",
+      "output_space": "srgb",
+      "recipe": "source_to_primary",
+      "strength_rule": "product_source_blend",
+      "preview": true,
+      "verified_strengths": [],
+      "preview_unverified_strengths": true,
+      "filter_options": [
+        "red",
+        "orange",
+        "yellow",
+        "green",
+        "blue"
+      ],
+      "confirmed_filter_options": [],
+      "official_description_token": "HundredYears",
+      "source_group": "Monochrome",
+      "preview_default": true
+    },
+    {
+      "id": "classic",
+      "title": "Classic",
+      "default_strength": 100,
+      "adjustable": true,
+      "group": "color",
+      "primary_cube": {
+        "filename": "Classic_sRGB_sRGB_Release_opacity_65.cube",
+        "sha256": "905ad30aca508f4e5932e1196a7255033be2cbe945a6678edd357b78aadf23e3",
+        "grid_size": 64,
+        "restore_half": true
+      },
+      "secondary_cube": null,
+      "input_space": "srgb",
+      "output_space": "srgb",
+      "recipe": "source_to_primary",
+      "strength_rule": "product_source_blend",
+      "preview": true,
+      "verified_strengths": [],
+      "preview_unverified_strengths": true,
+      "filter_options": [],
+      "confirmed_filter_options": [],
+      "official_description_token": "Classic",
+      "source_group": "primaryColor",
+      "preview_default": true
+    },
+    {
+      "id": "contemporary",
+      "title": "Contemporary",
+      "default_strength": 100,
+      "adjustable": true,
+      "group": "color",
+      "primary_cube": {
+        "filename": "Contemporary_sRGB_sRGB_Release_opacity_65.cube",
+        "sha256": "4bf17207fca2e118b07f2c53eaae9f43eef42961fa3e94e30fc8432f43f2f9bc",
+        "grid_size": 64,
+        "restore_half": true
+      },
+      "secondary_cube": null,
+      "input_space": "srgb",
+      "output_space": "srgb",
+      "recipe": "source_to_primary",
+      "strength_rule": "product_source_blend",
+      "preview": true,
+      "verified_strengths": [],
+      "preview_unverified_strengths": true,
+      "filter_options": [],
+      "confirmed_filter_options": [],
+      "official_description_token": "Contemporary",
+      "source_group": "primaryColor",
+      "preview_default": true
+    },
+    {
+      "id": "bleach",
+      "title": "Bleach",
+      "default_strength": 100,
+      "adjustable": true,
+      "group": "color",
+      "primary_cube": {
+        "filename": "Leica_Bleach_sRGB_sRGB_Release.cube",
+        "sha256": "b0acf77927145c151c92b0137a1b9a55b8b9f0d2db078964f89c83dfa5f18ca6",
+        "grid_size": 64,
+        "restore_half": true
+      },
+      "secondary_cube": null,
+      "input_space": "srgb",
+      "output_space": "srgb",
+      "recipe": "source_to_primary",
+      "strength_rule": "product_source_blend",
+      "preview": true,
+      "verified_strengths": [],
+      "preview_unverified_strengths": true,
+      "filter_options": [],
+      "confirmed_filter_options": [],
+      "official_description_token": "Bleach",
+      "source_group": "primaryColor",
+      "preview_default": true
+    },
+    {
+      "id": "blue",
+      "title": "Blue",
+      "default_strength": 100,
+      "adjustable": true,
+      "group": "monochrome",
+      "primary_cube": {
+        "filename": "Leica-Looks_Blue_sRGB_sRGB_Release.cube",
+        "sha256": "8bc89bcebf2c96938f512d89ccb13682176d5fcf65f879af3d02e33aba951501",
+        "grid_size": 64,
+        "restore_half": true
+      },
+      "secondary_cube": null,
+      "input_space": "srgb",
+      "output_space": "srgb",
+      "recipe": "source_to_primary",
+      "strength_rule": "product_source_blend",
+      "preview": true,
+      "verified_strengths": [],
+      "preview_unverified_strengths": true,
+      "filter_options": [
+        "red",
+        "orange",
+        "yellow",
+        "green",
+        "blue"
+      ],
+      "confirmed_filter_options": [],
+      "official_description_token": "Blue",
+      "source_group": "Monochrome",
+      "preview_default": true
+    },
+    {
+      "id": "brass",
+      "title": "Brass",
+      "default_strength": 100,
+      "adjustable": true,
+      "group": "color",
+      "primary_cube": {
+        "filename": "Leica_Brass_sRGB_sRGB_Release.cube",
+        "sha256": "c06771722e83ebbcc1618da9e3056a68e2e8845c950b174c87fd10e26b548ecb",
+        "grid_size": 64,
+        "restore_half": true
+      },
+      "secondary_cube": null,
+      "input_space": "srgb",
+      "output_space": "srgb",
+      "recipe": "source_to_primary",
+      "strength_rule": "product_source_blend",
+      "preview": true,
+      "verified_strengths": [],
+      "preview_unverified_strengths": true,
+      "filter_options": [],
+      "confirmed_filter_options": [],
+      "official_description_token": "Brass",
+      "source_group": "primaryColor",
+      "preview_default": true
+    },
+    {
+      "id": "chrome",
+      "title": "Chrome",
+      "default_strength": 100,
+      "adjustable": true,
+      "group": "color",
+      "primary_cube": {
+        "filename": "Tyson_Leica_Chrome_sRGB_sRGB_Release.cube",
+        "sha256": "0009fd96a26b09bf385c73e05114f8cd86b283c0d51a5bec311a20b2a78e3758",
+        "grid_size": 64,
+        "restore_half": true
+      },
+      "secondary_cube": null,
+      "input_space": "srgb",
+      "output_space": "srgb",
+      "recipe": "source_to_primary",
+      "strength_rule": "product_source_blend",
+      "preview": true,
+      "verified_strengths": [],
+      "preview_unverified_strengths": true,
+      "filter_options": [],
+      "confirmed_filter_options": [],
+      "official_description_token": "Chrome",
+      "source_group": "primaryColor",
+      "preview_default": true
+    },
+    {
+      "id": "cine",
+      "title": "Cine",
+      "default_strength": 100,
+      "adjustable": true,
+      "group": "color",
+      "primary_cube": {
+        "filename": "Leica-Looks_Cine_sRGB_sRGB_Release.cube",
+        "sha256": "f569a14cdd310faddaf78559680af64c115d0ff1511053ee6a67d667c7c49e54",
+        "grid_size": 17,
+        "restore_half": true
+      },
+      "secondary_cube": null,
+      "input_space": "srgb",
+      "output_space": "srgb",
+      "recipe": "source_to_primary",
+      "strength_rule": "product_source_blend",
+      "preview": true,
+      "verified_strengths": [],
+      "preview_unverified_strengths": true,
+      "filter_options": [],
+      "confirmed_filter_options": [],
+      "official_description_token": "Cine",
+      "source_group": "primaryColor",
+      "preview_default": true
+    },
+    {
+      "id": "pure",
+      "title": "Pure",
+      "default_strength": 100,
+      "adjustable": true,
+      "group": "color",
+      "primary_cube": {
+        "filename": "Leica-Looks_Pure_sRGB_sRGB_Release.cube",
+        "sha256": "706693586e9abf5a70fb50b6e5e433176e6f64281ecdb1ea0dcf846abbde118d",
+        "grid_size": 17,
+        "restore_half": true
+      },
+      "secondary_cube": null,
+      "input_space": "srgb",
+      "output_space": "srgb",
+      "recipe": "source_to_primary",
+      "strength_rule": "product_source_blend",
+      "preview": true,
+      "verified_strengths": [],
+      "preview_unverified_strengths": true,
+      "filter_options": [],
+      "confirmed_filter_options": [],
+      "official_description_token": "Pure",
+      "source_group": "primaryColor",
+      "preview_default": true
+    },
+    {
+      "id": "selenium",
+      "title": "Selenium",
+      "default_strength": 100,
+      "adjustable": true,
+      "group": "monochrome",
+      "primary_cube": {
+        "filename": "Leica-Looks_Selenium_sRGB_sRGB_Release.cube",
+        "sha256": "9e24de16f109ffd001dfc9cccc03f554c169bbbbe9485a861267dbedb3307649",
+        "grid_size": 64,
+        "restore_half": true
+      },
+      "secondary_cube": null,
+      "input_space": "srgb",
+      "output_space": "srgb",
+      "recipe": "source_to_primary",
+      "strength_rule": "product_source_blend",
+      "preview": true,
+      "verified_strengths": [],
+      "preview_unverified_strengths": true,
+      "filter_options": [
+        "red",
+        "orange",
+        "yellow",
+        "green",
+        "blue"
+      ],
+      "confirmed_filter_options": [],
+      "official_description_token": "Selenium",
+      "source_group": "Monochrome",
+      "preview_default": true
+    },
+    {
+      "id": "sepia",
+      "title": "Sepia",
+      "default_strength": 100,
+      "adjustable": true,
+      "group": "monochrome",
+      "primary_cube": {
+        "filename": "Leica-Looks_Sepia_sRGB_sRGB_Release.cube",
+        "sha256": "7e31f6e58b3c818f8b95d31f6924fd745082bf04f09a3c3c7c056952da352e85",
+        "grid_size": 64,
+        "restore_half": true
+      },
+      "secondary_cube": null,
+      "input_space": "srgb",
+      "output_space": "srgb",
+      "recipe": "source_to_primary",
+      "strength_rule": "product_source_blend",
+      "preview": true,
+      "verified_strengths": [],
+      "preview_unverified_strengths": true,
+      "filter_options": [
+        "red",
+        "orange",
+        "yellow",
+        "green",
+        "blue"
+      ],
+      "confirmed_filter_options": [],
+      "official_description_token": "Sepia",
+      "source_group": "Monochrome",
+      "preview_default": true
+    },
+    {
+      "id": "silver",
+      "title": "Silver",
+      "default_strength": 100,
+      "adjustable": true,
+      "group": "color",
+      "primary_cube": {
+        "filename": "Leica-Looks_Silver_sRGB_sRGB_Release.cube",
+        "sha256": "e53ecef3b4e2fef973f28a2254e7c108e18091f351591ec7459380c90d65f3a2",
+        "grid_size": 64,
+        "restore_half": true
+      },
+      "secondary_cube": null,
+      "input_space": "srgb",
+      "output_space": "srgb",
+      "recipe": "source_to_primary",
+      "strength_rule": "product_source_blend",
+      "preview": true,
+      "verified_strengths": [],
+      "preview_unverified_strengths": true,
+      "filter_options": [],
+      "confirmed_filter_options": [],
+      "official_description_token": "Silver",
+      "source_group": "primaryColor",
+      "preview_default": true
+    },
+    {
+      "id": "teal",
+      "title": "Teal",
+      "default_strength": 100,
+      "adjustable": true,
+      "group": "color",
+      "primary_cube": {
+        "filename": "Leica-Looks_Teal_sRGB_sRGB_Release.cube",
+        "sha256": "2a0f20bcae300b21055f0f680536db8fed6e439287866da5eae9a2c917a54d44",
+        "grid_size": 64,
+        "restore_half": true
+      },
+      "secondary_cube": null,
+      "input_space": "srgb",
+      "output_space": "srgb",
+      "recipe": "source_to_primary",
+      "strength_rule": "product_source_blend",
+      "preview": true,
+      "verified_strengths": [],
+      "preview_unverified_strengths": true,
+      "filter_options": [],
+      "confirmed_filter_options": [],
+      "official_description_token": "Teal",
+      "source_group": "primaryColor",
+      "preview_default": true
+    }
+  ],
+  "color_filters": [
+    {
+      "id": "red",
+      "title": "Red",
+      "cube": {
+        "filename": "Leica_monochrome_red.cube",
+        "sha256": "1635f2ac11b12238b7bfa3194465ad6f526b51510d3553e9aadf0e82ac735ce5",
+        "grid_size": 16,
+        "restore_half": true
+      },
+      "stage": "before_tone_in_working_domain",
+      "preview": true
+    },
+    {
+      "id": "orange",
+      "title": "Orange",
+      "cube": {
+        "filename": "Leica_monochrome_orange.cube",
+        "sha256": "8887df3dc05e16e2c2f39960acd66c65e340bcc27892311659f7626366abe256",
+        "grid_size": 16,
+        "restore_half": true
+      },
+      "stage": "before_tone_in_working_domain",
+      "preview": true
+    },
+    {
+      "id": "yellow",
+      "title": "Yellow",
+      "cube": {
+        "filename": "Leica_monochrome_yellow.cube",
+        "sha256": "b7c6841b0abb148a6804cb5d97d63620d330b8ab0c43101a8bb87c8e647cf4ea",
+        "grid_size": 16,
+        "restore_half": true
+      },
+      "stage": "before_tone_in_working_domain",
+      "preview": true
+    },
+    {
+      "id": "green",
+      "title": "Green",
+      "cube": {
+        "filename": "Leica_monochrome_green.cube",
+        "sha256": "bae4b21b6b2ecfdf70a2e6a5e541f93888ef9079d193ddc14914f4d782f16ebd",
+        "grid_size": 16,
+        "restore_half": true
+      },
+      "stage": "before_tone_in_working_domain",
+      "preview": true
+    },
+    {
+      "id": "blue",
+      "title": "Blue",
+      "cube": {
+        "filename": "Leica_monochrome_blue.cube",
+        "sha256": "c0c8fc079250c3b178ea09f318f966490d30ae6baff037c6c666c6bc1fbf2bfa",
+        "grid_size": 16,
+        "restore_half": true
+      },
+      "stage": "before_tone_in_working_domain",
+      "preview": true
+    }
+  ]
+}

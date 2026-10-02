@@ -1,0 +1,5 @@
+# Numerical experiments use Python 3.12.
+numpy==1.26.4
+Pillow>=11.3,<13
+# ICC generation/evaluation also uses the system LittleCMS 2 library.
+# FFmpeg is used by experiments/rendered_srgb/compare_lut.py and optional cross-checks.

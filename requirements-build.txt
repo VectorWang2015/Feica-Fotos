@@ -1,0 +1,3 @@
+# Native, per-platform onedir bundling only; install inside the project .venv.
+# Runtime dependencies remain in requirements-app.txt.
+PyInstaller>=6.16,<7

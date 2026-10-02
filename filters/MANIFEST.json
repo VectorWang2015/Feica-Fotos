@@ -1,0 +1,175 @@
+{
+  "app_looks": 21,
+  "app_attachments": 5,
+  "app_tables": [
+    {
+      "path": "filters/looks/29_Leica-Looks_SteveMcCurry_sRGB_sRGB_TESTFLIGHT-LUT-1.cube",
+      "bytes": 189465,
+      "sha256": "1ba546c7691bac7a3d52dca0aafade3d0a7a20742c1b43946cb4fcda1a88ba83"
+    },
+    {
+      "path": "filters/looks/29_Leica-Looks_SteveMcCurry_sRGB_sRGB_TESTFLIGHT-LUT-3.cube",
+      "bytes": 202820,
+      "sha256": "977fd7273c17f088dcea06aa47b0def24725a4874e76d63a1dcad0d8e5ea2b90"
+    },
+    {
+      "path": "filters/looks/Classic_sRGB_sRGB_Release_opacity_65.cube",
+      "bytes": 10620843,
+      "sha256": "905ad30aca508f4e5932e1196a7255033be2cbe945a6678edd357b78aadf23e3"
+    },
+    {
+      "path": "filters/looks/Contemporary_sRGB_sRGB_Release_opacity_65.cube",
+      "bytes": 10693531,
+      "sha256": "4bf17207fca2e118b07f2c53eaae9f43eef42961fa3e94e30fc8432f43f2f9bc"
+    },
+    {
+      "path": "filters/looks/Leica-Filter_Monochrome_DP3_DP3_Release.cube",
+      "bytes": 10611335,
+      "sha256": "35127a427c57a84abeb51b4a359a378c3afa9b88b713283924d2c4be48a27a22"
+    },
+    {
+      "path": "filters/looks/Leica-Filter_Natural_DP3_DP3_Release.cube",
+      "bytes": 10512612,
+      "sha256": "f6eae9cae3e22c455c3381cb546f7f5abb832c4210e7a3372449045a14698b1d"
+    },
+    {
+      "path": "filters/looks/Leica-Looks_Blue_sRGB_sRGB_Release.cube",
+      "bytes": 10541127,
+      "sha256": "8bc89bcebf2c96938f512d89ccb13682176d5fcf65f879af3d02e33aba951501"
+    },
+    {
+      "path": "filters/looks/Leica-Looks_Cine_sRGB_sRGB_Release.cube",
+      "bytes": 200075,
+      "sha256": "f569a14cdd310faddaf78559680af64c115d0ff1511053ee6a67d667c7c49e54"
+    },
+    {
+      "path": "filters/looks/Leica-Looks_Eternal_sRGB_sRGB_Release.cube",
+      "bytes": 10937629,
+      "sha256": "9c9c166943c575e515988c8b081c23432420db9a349fd9abc6decea1697c7350"
+    },
+    {
+      "path": "filters/looks/Leica-Looks_Pure_sRGB_sRGB_Release.cube",
+      "bytes": 200681,
+      "sha256": "706693586e9abf5a70fb50b6e5e433176e6f64281ecdb1ea0dcf846abbde118d"
+    },
+    {
+      "path": "filters/looks/Leica-Looks_Selenium_sRGB_sRGB_Release.cube",
+      "bytes": 10597062,
+      "sha256": "9e24de16f109ffd001dfc9cccc03f554c169bbbbe9485a861267dbedb3307649"
+    },
+    {
+      "path": "filters/looks/Leica-Looks_Sepia_sRGB_sRGB_Release.cube",
+      "bytes": 10694913,
+      "sha256": "7e31f6e58b3c818f8b95d31f6924fd745082bf04f09a3c3c7c056952da352e85"
+    },
+    {
+      "path": "filters/looks/Leica-Looks_Silver_sRGB_sRGB_Release.cube",
+      "bytes": 10568270,
+      "sha256": "e53ecef3b4e2fef973f28a2254e7c108e18091f351591ec7459380c90d65f3a2"
+    },
+    {
+      "path": "filters/looks/Leica-Looks_Teal_sRGB_sRGB_Release.cube",
+      "bytes": 10785660,
+      "sha256": "2a0f20bcae300b21055f0f680536db8fed6e439287866da5eae9a2c917a54d44"
+    },
+    {
+      "path": "filters/looks/Leica_Bleach_sRGB_sRGB_Release.cube",
+      "bytes": 10649060,
+      "sha256": "b0acf77927145c151c92b0137a1b9a55b8b9f0d2db078964f89c83dfa5f18ca6"
+    },
+    {
+      "path": "filters/looks/Leica_Brass_sRGB_sRGB_Release.cube",
+      "bytes": 10708325,
+      "sha256": "c06771722e83ebbcc1618da9e3056a68e2e8845c950b174c87fd10e26b548ecb"
+    },
+    {
+      "path": "filters/looks/Leica_Monochrome_High_Contrast_sRGB_sRGB_Release.cube",
+      "bytes": 10575248,
+      "sha256": "b69232c4bdff08387a568f6e9a11452788955da9588d408a728690e9c3353fc1"
+    },
+    {
+      "path": "filters/looks/Leica_Vivid_sRGB_sRGB_Release.cube",
+      "bytes": 10564029,
+      "sha256": "dc51b41dd79fa040623c28b1903917fbe86b0a8a48030a715f86063c8f9fce92"
+    },
+    {
+      "path": "filters/looks/Leica_monochrome_blue.cube",
+      "bytes": 166688,
+      "sha256": "c0c8fc079250c3b178ea09f318f966490d30ae6baff037c6c666c6bc1fbf2bfa"
+    },
+    {
+      "path": "filters/looks/Leica_monochrome_green.cube",
+      "bytes": 167031,
+      "sha256": "bae4b21b6b2ecfdf70a2e6a5e541f93888ef9079d193ddc14914f4d782f16ebd"
+    },
+    {
+      "path": "filters/looks/Leica_monochrome_orange.cube",
+      "bytes": 164776,
+      "sha256": "8887df3dc05e16e2c2f39960acd66c65e340bcc27892311659f7626366abe256"
+    },
+    {
+      "path": "filters/looks/Leica_monochrome_red.cube",
+      "bytes": 166861,
+      "sha256": "1635f2ac11b12238b7bfa3194465ad6f526b51510d3553e9aadf0e82ac735ce5"
+    },
+    {
+      "path": "filters/looks/Leica_monochrome_yellow.cube",
+      "bytes": 165334,
+      "sha256": "b7c6841b0abb148a6804cb5d97d63620d330b8ab0c43101a8bb87c8e647cf4ea"
+    },
+    {
+      "path": "filters/looks/Tyson_100yearsMono1A_sRGB_sRGB_Release.cube",
+      "bytes": 10519460,
+      "sha256": "206c67553a7bacfdca8e56e370a51e39740dd83d59844bb0c279d07df8cb3f8d"
+    },
+    {
+      "path": "filters/looks/Tyson_GregWilliams_Sepia0_DP3_DP3_Release.cube",
+      "bytes": 10554911,
+      "sha256": "59be67ea44b5ad663395ac5409016f150f9b081584f6f0308cd805abc133327a"
+    },
+    {
+      "path": "filters/looks/Tyson_GregWilliams_Sepia100_DP3_DP3_Release.cube",
+      "bytes": 10572224,
+      "sha256": "cbbea50a70090a2460264f7cf7197ff8f46499dafcf6203156cdec0064b86444"
+    },
+    {
+      "path": "filters/looks/Tyson_Leica_Base_V3_DP3_DP3_Release.cube",
+      "bytes": 10765891,
+      "sha256": "39eacd2c77264d1eefd5ae8cdf4d16acf9075299f0f45a8561f5388fc02b7f3f"
+    },
+    {
+      "path": "filters/looks/Tyson_Leica_Chrome_sRGB_sRGB_Release.cube",
+      "bytes": 10674094,
+      "sha256": "0009fd96a26b09bf385c73e05114f8cd86b283c0d51a5bec311a20b2a78e3758"
+    }
+  ],
+  "camera_profiles": [
+    {
+      "path": "filters/c1/LeicaQTyp116-LocalLooks-VividPreview-Native33-v1.icm",
+      "bytes": 217648,
+      "sha256": "c7d92e96c5655ff0412a3baa1dc3136cd7a35db588f942468556d7a94743d64b"
+    },
+    {
+      "path": "filters/diagnostics/LeicaQTyp116-LocalLooks-Bypass.icm",
+      "bytes": 217624,
+      "sha256": "b1fac904dcc78656137b35498d332e6f8fd0e3aa3224199460b9bf25f6dcac89"
+    },
+    {
+      "path": "filters/diagnostics/LeicaQTyp116-LocalLooks-C1Single-OrderProbe-v1.icm",
+      "bytes": 217640,
+      "sha256": "e3bd57467ef3d619184f1ec5b13db4ea5b8fd06cf347c9c0ba315f7688a4f58c"
+    }
+  ],
+  "rendered_srgb_archive": {
+    "looks": 18,
+    "strengths": [
+      25,
+      50,
+      75,
+      100
+    ],
+    "icc_count": 72,
+    "style_count": 72,
+    "cube_count": 18
+  }
+}

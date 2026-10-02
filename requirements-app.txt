@@ -1,0 +1,4 @@
+# Desktop runtime; Python 3.12 is the reproducible build target.
+PySide6-Essentials==6.11.2
+numpy==1.26.4
+Pillow>=11.3,<13

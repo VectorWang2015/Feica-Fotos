@@ -1,0 +1,12 @@
+* text=auto
+*.py text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.sh text eol=lf
+*.cmd text eol=crlf
+*.cube binary linguist-generated=true
+*.icc binary
+*.icm binary
+*.costyle -text
+*.png binary
+*.ico binary

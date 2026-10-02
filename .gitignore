@@ -1,0 +1,51 @@
+# Python and local environments
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Build and experiment outputs
+/dist/
+/build/
+/outputs/
+/work/
+*.spec
+*.log
+*.tmp
+
+# Local inputs and original research material
+/inputs/
+/samples/
+/analysis/
+/artifacts/
+/archives/
+/tools/
+*.DNG
+*.dng
+*.JPG
+*.jpg
+*.JPEG
+*.jpeg
+*.tif
+*.tiff
+*.mp4
+*.mov
+*.ipa
+*.apk
+*.upd
+*.zip
+*.tar.gz
+*.tar.xz
+
+# Credentials and machine settings
+.env
+.env.*
+*.pem
+*.key
+credentials*
+settings*.yaml
+.DS_Store
+Thumbs.db
