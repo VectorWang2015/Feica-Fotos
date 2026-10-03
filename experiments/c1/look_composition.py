@@ -17,7 +17,7 @@ from typing import Mapping
 
 import numpy as np
 
-from apps.local_looks.catalog import COLOR_FILTERS, LOOK_BINDINGS
+from apps.feica_fotos.catalog import COLOR_FILTERS, LOOK_BINDINGS
 from reproduction.ios_looks import color_spaces
 from reproduction.ios_looks.renderer import TextureLUT, sample_texture
 
@@ -218,13 +218,13 @@ def _variant(binding, strength, color_filter=None):
     if group not in _GROUP_FOLDERS:
         raise ValueError('Unsupported profile group')
     suffix = '' if color_filter is None else '-Filter' + _identifier(color_filter)
-    stem = f'LeicaQTyp116-LocalLooks-{label}-S{strength:03d}{suffix}-v1'
+    stem = f'LeicaQTyp116-FeicaFotos-{label}-S{strength:03d}{suffix}-v1'
     folder = _GROUP_FOLDERS[group] if color_filter is None else f'attachments/{look_id}'
     dual = binding['recipe'] == 'secondary_to_primary'
     family = ('dual' if dual else 'single') + ('-p3' if binding['input_space'] == 'display-p3' else '-srgb')
     if color_filter is not None:
         family += '-prefilter'
-    description = f'LocalLooks-Q1-{label}-S{strength:03d}{suffix}-v1'
+    description = f'Feica Fotos-Q1-{label}-S{strength:03d}{suffix}-v1'
     return LookVariant(look_id, strength, color_filter, group, family,
                        f'{folder}/{stem}.icm', description)
 

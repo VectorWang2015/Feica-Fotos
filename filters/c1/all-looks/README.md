@@ -1,4 +1,4 @@
-# Capture One · Leica Q Typ116 全套滤镜
+# Feica Fotos · Leica Q Typ116 全套滤镜
 
 这套配置包含21款滤镜，每款提供25、50、75、100四档强度。Steve McCurry和Greg Williams另外提供0档端点。六款单色滤镜各有红、橙、黄、绿、蓝五种滤色版本，同样提供四档强度。
 
@@ -9,7 +9,7 @@
 1. 解压到自己的滤镜备份目录。
 2. 将需要使用的`.icm`文件复制到Capture One的相机ICC目录。Windows中常见的位置是安装目录下的`Color Profiles\Common`，例如`C:\Program Files\Capture One\Capture One\Color Profiles\Common`。保留该目录中的原有配置。
 3. 重启Capture One，打开Q Typ116拍摄的RAW，为它创建一个克隆变体。
-4. 在“基本特性 / Base Characteristics”的ICC列表选择名称以`LocalLooks-Q1`开头的滤镜。
+4. 在“基本特性 / Base Characteristics”的ICC列表选择名称以`Feica Fotos-Q1`开头的滤镜。
 5. 先选定一个固定基础曲线，例如Film Standard，再调整曝光、白平衡和其他参数。原变体可以继续使用原来的Generic和Auto设置。
 
 文件名中的`S025`、`S050`、`S075`、`S100`表示强度。带`FilterRed`等后缀的是单色滤色版本。需要恢复原相机颜色时，切回Leica Q Generic。

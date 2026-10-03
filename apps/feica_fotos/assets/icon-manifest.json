@@ -1,0 +1,47 @@
+{
+  "user_choice": "C \u2014 slanted light",
+  "integration_authorized": true,
+  "artwork_unchanged_except_svg_accessible_title_description": true,
+  "files": {
+    "icon-128.png": {
+      "bytes": 5865,
+      "sha256": "ffaa56e2b40f06593d3fdab42e352d8cd337d55637403f63264e2be156c8948c"
+    },
+    "icon-16.png": {
+      "bytes": 607,
+      "sha256": "18248027f3d5ba8b8940d05a5ddaf13349e724612532047cc40c29b72e7ca233"
+    },
+    "icon-24.png": {
+      "bytes": 922,
+      "sha256": "7a1cb4932c0b0b0de1938bfc167fe3bd7b02ca03230b120858f5deb2cfbfaae4"
+    },
+    "icon-256.png": {
+      "bytes": 12408,
+      "sha256": "8f889be4e48287df31e1fe7ef9a7ed08849c64dcdd71914ca9c62ebb9331ef9e"
+    },
+    "icon-32.png": {
+      "bytes": 1198,
+      "sha256": "bd3b143ba08f35923f275774645ca4659c191b080cae112df7857f5f31b58ed8"
+    },
+    "icon-48.png": {
+      "bytes": 1911,
+      "sha256": "9919b6a38ddd367108646078f0bb849cd49a3369894e505f506c38832a7a92d5"
+    },
+    "icon-512.png": {
+      "bytes": 27189,
+      "sha256": "7018028ef71fd93d8a1bfb2eb02feaaf28748268ede37a751a2ea8f34bced030"
+    },
+    "icon-64.png": {
+      "bytes": 2625,
+      "sha256": "61816f84eb017ed83682244ab65fb4adb63e52ca22846f977c3ddcaaebfec3bd"
+    },
+    "icon-c.svg": {
+      "bytes": 1282,
+      "sha256": "edda4ea6b153f05de5d0e35fa68a722b50998e585587c174ff1d31c3fdf3413a"
+    },
+    "feica-fotos.ico": {
+      "bytes": 37337,
+      "sha256": "7b884620f727b986ccf9ae6f551b61057fd300998e9b707c6a3c084e3d4305cf"
+    }
+  }
+}

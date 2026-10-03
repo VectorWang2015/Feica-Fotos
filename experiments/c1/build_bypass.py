@@ -72,7 +72,7 @@ def main():
     if DEST.exists() or REPORT.exists():raise SystemExit('Refusing overwrite')
     d=SOURCE.read_bytes();before=audit.sha(d)
     if before!=EXPECTED:raise SystemExit('source hash mismatch')
-    p=serialize(d,'LocalLooks-Bypass');source_tags={s:b for s,o,b in tags(d)};new_tags={s:b for s,o,b in tags(p)}
+    p=serialize(d,'Feica Fotos-Bypass');source_tags={s:b for s,o,b in tags(d)};new_tags={s:b for s,o,b in tags(p)}
     differences=[]
     for s,o,b in tags(p):
         original=source_tags[s]
@@ -95,7 +95,7 @@ def main():
     with DEST.open('xb') as f:f.write(p)
     after=audit.sha(SOURCE.read_bytes())
     if before!=after:raise AssertionError('source changed')
-    r={'candidate':DEST.name,'description':'LocalLooks-Bypass','candidate_bytes':len(p),'candidate_sha256':audit.sha(p),
+    r={'candidate':DEST.name,'description':'Feica Fotos-Bypass','candidate_bytes':len(p),'candidate_sha256':audit.sha(p),
        'source':SOURCE.name,'source_sha256_before':before,'source_sha256_after':after,'source_unchanged':before==after,
        'purpose':'Research bypass only; not official Leica profile; NOT installed or tested in Capture One.',
        'serialization':{'description_changed_only_among_tag_payloads':True,'header_4_127_exact':True,'header_size_old':len(d),'header_size_new':len(p),

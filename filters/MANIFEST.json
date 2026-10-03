@@ -145,26 +145,31 @@
   ],
   "camera_profiles": [
     {
-      "path": "filters/c1/LeicaQTyp116-LocalLooks-VividPreview-Native33-v1.icm",
+      "path": "filters/c1/LeicaQTyp116-FeicaFotos-VividPreview-Native33-v1.icm",
       "bytes": 217648,
-      "sha256": "c7d92e96c5655ff0412a3baa1dc3136cd7a35db588f942468556d7a94743d64b"
+      "sha256": "57b2be89835995e61e0740c7ca0ee437b3bd6ab6992b41401e71575c924b33e2"
     },
     {
-      "path": "filters/diagnostics/LeicaQTyp116-LocalLooks-Bypass.icm",
-      "bytes": 217624,
-      "sha256": "b1fac904dcc78656137b35498d332e6f8fd0e3aa3224199460b9bf25f6dcac89"
+      "path": "filters/diagnostics/LeicaQTyp116-FeicaFotos-Bypass.icm",
+      "bytes": 217628,
+      "sha256": "353e863091c35d54d73244c62701c0f51b4d23615143133d707684c26c206e3a"
     },
     {
-      "path": "filters/diagnostics/LeicaQTyp116-LocalLooks-C1Single-OrderProbe-v1.icm",
-      "bytes": 217640,
-      "sha256": "e3bd57467ef3d619184f1ec5b13db4ea5b8fd06cf347c9c0ba315f7688a4f58c"
+      "path": "filters/diagnostics/LeicaQTyp116-FeicaFotos-C1Single-OrderProbe-v1.icm",
+      "bytes": 217644,
+      "sha256": "99f1b4af580d6f56c8494582cfb4005aaa6709c14664cdde0dc365b51aad1c19"
     }
   ],
   "q1_all_looks": {
     "directory": "filters/c1/all-looks",
     "manifest": "filters/c1/all-looks/MANIFEST.json",
     "looks": 21,
-    "main_strengths": [25, 50, 75, 100],
+    "main_strengths": [
+      25,
+      50,
+      75,
+      100
+    ],
     "dual_zero_endpoints": 2,
     "main_profiles": 86,
     "attachment_profiles": 120,

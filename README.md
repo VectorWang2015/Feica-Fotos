@@ -1,6 +1,6 @@
 # Feica Fotos
 
-Local Looks 是一个离线照片滤镜 App，支持 Ubuntu 和 Windows。打开照片、选择滤镜、调整强度，再导出 PNG 或 JPEG。
+Feica Fotos 是一个离线照片滤镜 App，支持 Ubuntu 和 Windows。打开照片、选择滤镜、调整强度，再导出 PNG 或 JPEG。
 
 App 提供 21 款滤镜和 5 种单色滤色附件，强度可按 0.01 调整。DNG 输入使用文件中的内嵌 JPEG 预览，导出保留预览的完整尺寸。
 
@@ -13,33 +13,33 @@ App 提供 21 款滤镜和 5 种单色滤色附件，强度可按 0.01 调整。
 ```bat
 py -3.12 -m venv .venv
 .venv\Scripts\python.exe -m pip install -r requirements-app.txt -r requirements-build.txt
-.venv\Scripts\python.exe scripts\build_local_looks.py --with-local-resources filters\looks
+.venv\Scripts\python.exe scripts\build_feica_fotos.py --with-local-resources filters\looks
 ```
 
-构建完成后运行 `dist\LocalLooks\LocalLooks.exe`。
+构建完成后运行 `dist\Feica Fotos\Feica Fotos.exe`。用户已成功编译Windows 0.3版，本次0.3.1沿用同一构建流程。
 
 ### Ubuntu
 
 ```bash
 python3.12 -m venv .venv
 .venv/bin/python -m pip install -r requirements-app.txt -r requirements-build.txt
-.venv/bin/python scripts/build_local_looks.py --with-local-resources filters/looks
+.venv/bin/python scripts/build_feica_fotos.py --with-local-resources filters/looks
 ```
 
-构建完成后运行 `./dist/LocalLooks/LocalLooks`。
+构建完成后运行 `"./dist/Feica Fotos/Feica Fotos"`。
 
-Windows 和 Linux 分别在对应系统上打包。分发时保留整个 `dist/LocalLooks` 文件夹，里面包含运行库和滤镜资源。重新构建前，将已有输出移到备份目录。
+Windows 和 Linux 分别在对应系统上打包。分发时保留整个 `dist/Feica Fotos` 文件夹，里面包含运行库和滤镜资源。重新构建前，将已有输出移到备份目录。
 
 开发时可以直接运行源码：
 
 ```bat
 :: Windows
-launch-local-looks.cmd --resource-dir filters\looks
+launch-feica-fotos.cmd --resource-dir filters\looks
 ```
 
 ```bash
 # Ubuntu
-./launch-local-looks.sh --resource-dir filters/looks
+./launch-feica-fotos.sh --resource-dir filters/looks
 ```
 
 ## 在 App 中使用滤镜
@@ -68,7 +68,7 @@ launch-local-looks.cmd --resource-dir filters\looks
 
 1. 为Q1 RAW创建一个克隆变体，保留原来的Generic配置。
 2. 将需要的`.icm`文件加入Capture One的自定义ICC配置。Windows安装中常见的位置是安装目录下的`Color Profiles\Common`；例如`C:\Program Files\Capture One\Capture One\Color Profiles\Common`。复制时保留已有文件。
-3. 重启Capture One，在“基本特性 / Base Characteristics”的ICC列表选择`LocalLooks-Q1`开头的滤镜。
+3. 重启Capture One，在“基本特性 / Base Characteristics”的ICC列表选择`Feica Fotos-Q1`开头的滤镜。
 4. 选择固定的基础曲线，例如Film Standard，再调整曝光和白平衡。原来的Auto工作流可以继续保留在原变体中。
 
 文件名中的`S025`等数字表示强度，`FilterRed`等后缀表示滤色附件。每次选择一份ICC即可；需要恢复原相机颜色时切回Generic。

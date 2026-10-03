@@ -21,7 +21,7 @@ from experiments.c1 import c1_single_profile as c1
 
 MARGIN = .08
 FEATHER_RINGS = 2
-NAME = 'LocalLooks-Q1-VividPreview-Native33-v1'
+NAME = 'Feica Fotos-Q1-VividPreview-Native33-v1'
 PRIMARY_GRID = 33
 UNSAFE_NODE_BUDGET = .75  # Explicit DeltaE76 magnitude, not an official gamut/strength rule.
 BITS = tuple(itertools.product((0, 1), repeat=3))
@@ -357,7 +357,7 @@ def build(out_dir, release_dir, reference_tiff=None):
         raise AssertionError('Unexpected CMM discrepancy beyond preview validation budget')
     oldtags, tags = dict(c1.read_tags(source)), dict(c1.read_tags(candidate))
     report = {'version': 1, 'status': 'TRIAL-READY EXPERIMENTAL LOOK, NOT HOST-VERIFIED',
-              'name': NAME, 'filename': 'LeicaQTyp116-LocalLooks-VividPreview-Native33-v1.icm',
+              'name': NAME, 'filename': 'LeicaQTyp116-FeicaFotos-VividPreview-Native33-v1.icm',
               'bytes': len(candidate), 'sha256': c1.sha(candidate),
               'source_sha256': c1.sha(source), 'vivid_cube_sha256': c1.sha(cube),
               'algorithm': {'look': 'Vivid100 original binary16 table, x*N-.5 sampling',

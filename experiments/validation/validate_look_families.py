@@ -23,7 +23,7 @@ from PIL import Image, ImageOps
 ROOT = Path(__file__).resolve().parents[2]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
-CATALOG = ROOT / 'apps/local_looks/assets/look-catalog.json'
+CATALOG = ROOT / 'apps/feica_fotos/assets/look-catalog.json'
 CUBES = ROOT / 'filters/looks'
 STRENGTHS = (0, 25, 37.25, 50, 75, 100)
 # Exact rational standard-primary matrices, independent of production's xy solve.
@@ -232,7 +232,7 @@ def load_photo_fixtures(manifest_path):
 
 def run_suite(out_dir, resource_dir=CUBES, source_half_dir=None, photo_fixtures=None):
     """Exercise app+sampler as observed implementation, oracle above as reference."""
-    from apps.local_looks.engine import ImageEngine
+    from apps.feica_fotos.engine import ImageEngine
     from reproduction.ios_looks import renderer, color_spaces
     resource_dir = Path(resource_dir)
     source_half_dir = Path(source_half_dir) if source_half_dir is not None else None

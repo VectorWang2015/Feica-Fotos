@@ -32,7 +32,7 @@ SOURCE_SHA = 'efed3f9554cb8da91de1fffb0e4a93b2ae9f98acc47d2cd4078133b38f99b969'
 VIVID = ROOT/'filters/looks/Leica_Vivid_sRGB_sRGB_Release.cube'
 # A modest, invertible affine perturbation, NOT a Look or calibration correction.
 PROBE_MATRIX = np.array([[.90, 0, 0], [.04, .98, 0], [-.03, 0, .98]])
-PROBE_NAME = 'LocalLooks-C1Single-OrderProbe-v1'
+PROBE_NAME = 'Feica Fotos-C1Single-OrderProbe-v1'
 
 
 def configure_inputs(profile=None, cube=None):
@@ -323,7 +323,7 @@ def build(out_dir):
         'cube': input_label(VIVID), 'cube_sha256': sha(cube_data),
         'vivid_samples_restored_binary16': True,
         'probe': {
-            'file': 'LeicaQTyp116-LocalLooks-C1Single-OrderProbe-v1.icm',
+            'file': 'LeicaQTyp116-FeicaFotos-C1Single-OrderProbe-v1.icm',
             'description': PROBE_NAME, 'sha256': sha(new_data), 'bytes': len(new_data),
             'matrix_physical_Lab': PROBE_MATRIX.tolist(), 'determinant': float(np.linalg.det(PROBE_MATRIX)),
             'native_input_shapers_byte_identical': original.raw[original.ib:original.ie] == modified.raw[modified.ib:modified.ie],

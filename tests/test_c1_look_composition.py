@@ -8,7 +8,7 @@ import unittest
 
 import numpy as np
 
-from apps.local_looks.catalog import LOOK_BINDINGS, COLOR_FILTERS
+from apps.feica_fotos.catalog import LOOK_BINDINGS, COLOR_FILTERS
 from experiments.c1 import look_composition as c
 from experiments.validation import validate_look_families as oracle
 from reproduction.ios_looks.renderer import TextureLUT
