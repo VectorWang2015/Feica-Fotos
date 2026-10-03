@@ -55,16 +55,27 @@ launch-local-looks.cmd --resource-dir filters\looks
 
 ## 在 Capture One 中使用滤镜
 
-### Q1 RAW：Vivid Preview
+### Q1 RAW：全套相机ICC
 
-使用 [filters/c1](filters/c1) 中的 `LeicaQTyp116-LocalLooks-VividPreview-Native33-v1.icm`。这个配置在 Q Typ116 的原生相机配置上叠加了较温和的 Vivid 效果，目前处于实验阶段。
+[filters/c1/all-looks](filters/c1/all-looks) 提供21款滤镜的25、50、75、100四档强度，Steve McCurry和Greg Williams另有0档端点。六款单色滤镜各有五种滤色附件和四档强度，共206份ICC。
 
-1. 为 Q1 RAW 创建一个克隆变体，保留原来的 Generic 配置。
-2. 将 `.icm` 文件加入 Capture One 的自定义 ICC 配置。Windows 安装中常见的位置是安装目录下的 `Color Profiles\Common`；例如 `C:\Program Files\Capture One\Capture One\Color Profiles\Common`。复制时保留已有文件。
-3. 重启 Capture One，在“基本特性 / Base Characteristics”的 ICC 列表选择 `LocalLooks-Q1-VividPreview-Native33-v1`。
-4. 选择固定的基础曲线，例如 Film Standard，再调整曝光和白平衡。原来的 Auto 工作流可以继续保留在原变体中。
+- `colors`：13款彩色滤镜，共52份。
+- `monochrome`：6款单色或调色单色滤镜，共24份。
+- `artist`：Steve McCurry和Greg Williams，共10份。
+- `attachments`：单色滤镜的红、橙、黄、绿、蓝版本，共120份。
 
-这一款只需选择一个 ICC。切回 Generic 即可恢复原相机配置。
+使用步骤：
+
+1. 为Q1 RAW创建一个克隆变体，保留原来的Generic配置。
+2. 将需要的`.icm`文件加入Capture One的自定义ICC配置。Windows安装中常见的位置是安装目录下的`Color Profiles\Common`；例如`C:\Program Files\Capture One\Capture One\Color Profiles\Common`。复制时保留已有文件。
+3. 重启Capture One，在“基本特性 / Base Characteristics”的ICC列表选择`LocalLooks-Q1`开头的滤镜。
+4. 选择固定的基础曲线，例如Film Standard，再调整曝光和白平衡。原来的Auto工作流可以继续保留在原变体中。
+
+文件名中的`S025`等数字表示强度，`FilterRed`等后缀表示滤色附件。每次选择一份ICC即可；需要恢复原相机颜色时切回Generic。
+
+这套配置保留Q Typ116相机基底，使用完整滤镜颜色变换，并对超出工作色域的颜色作连续压缩。单色100档使用色表给出的灰度或调色效果。当前版本已完成本地数值和LittleCMS检查，C1的曲线和其他调整仍会影响最终画面。
+
+每份文件的参数和SHA256保存在集合内的`MANIFEST.json`中。
 
 ### 已显影的 sRGB TIFF：RGB 滤镜组
 

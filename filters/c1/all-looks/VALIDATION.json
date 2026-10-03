@@ -1,0 +1,270 @@
+{
+  "profiles": 206,
+  "group_counts": {
+    "color": 52,
+    "monochrome": 24,
+    "attachments": 120,
+    "artist": 10
+  },
+  "all_native_structure_preserved": true,
+  "all_lcms_available": true,
+  "max_lcms_relative_deltaE76": 0.010388190054345462,
+  "max_lcms_perceptual_vs_relative_deltaE76": 8.253891129762685,
+  "max_node_quantization_deltaE76": 0.0028663644916030167,
+  "max_holdout_tetra_deltaE76": 22.709878501026544,
+  "max_holdout_trilinear_deltaE76": 26.356178263578062,
+  "main100": [
+    {
+      "look": "standard",
+      "projections": {
+        "input_projection_count": 18089,
+        "output_projection_count": 1,
+        "lab16_chroma_reduction_count": 0
+      },
+      "lcms_max": 0.0072703732462972405,
+      "tetra_p95": 0.8664576329078029,
+      "tri_p95": 0.92724815315326,
+      "effect_mean": 5.6198392128793095
+    },
+    {
+      "look": "vivid",
+      "projections": {
+        "input_projection_count": 29943,
+        "output_projection_count": 0,
+        "lab16_chroma_reduction_count": 0
+      },
+      "lcms_max": 0.006946670774550697,
+      "tetra_p95": 1.244545400632496,
+      "tri_p95": 1.4305574959888565,
+      "effect_mean": 9.575229116745902
+    },
+    {
+      "look": "natural",
+      "projections": {
+        "input_projection_count": 18089,
+        "output_projection_count": 65,
+        "lab16_chroma_reduction_count": 0
+      },
+      "lcms_max": 0.007245907860559188,
+      "tetra_p95": 0.891126236778356,
+      "tri_p95": 0.9398477438378928,
+      "effect_mean": 10.979152751790952
+    },
+    {
+      "look": "monochrome_natural",
+      "projections": {
+        "input_projection_count": 18089,
+        "output_projection_count": 0,
+        "lab16_chroma_reduction_count": 0
+      },
+      "lcms_max": 0.00287955804725821,
+      "tetra_p95": 0.10271403832252293,
+      "tri_p95": 0.10800098842564257,
+      "effect_mean": 62.92662138423087
+    },
+    {
+      "look": "monochrome_high_contrast",
+      "projections": {
+        "input_projection_count": 29943,
+        "output_projection_count": 0,
+        "lab16_chroma_reduction_count": 0
+      },
+      "lcms_max": 0.003122677767175537,
+      "tetra_p95": 0.13981474130746294,
+      "tri_p95": 0.13860869877513693,
+      "effect_mean": 63.33647738790007
+    },
+    {
+      "look": "steve",
+      "projections": {
+        "input_projection_count": 29943,
+        "output_projection_count": 0,
+        "lab16_chroma_reduction_count": 0
+      },
+      "lcms_max": 0.010388190054345462,
+      "tetra_p95": 1.5469713428285858,
+      "tri_p95": 1.9458316422827204,
+      "effect_mean": 13.224506154407699
+    },
+    {
+      "look": "eternal",
+      "projections": {
+        "input_projection_count": 29943,
+        "output_projection_count": 0,
+        "lab16_chroma_reduction_count": 0
+      },
+      "lcms_max": 0.008119652735270369,
+      "tetra_p95": 1.5048271520655925,
+      "tri_p95": 1.9719998846631321,
+      "effect_mean": 14.152785939986783
+    },
+    {
+      "look": "greg",
+      "projections": {
+        "input_projection_count": 18089,
+        "output_projection_count": 0,
+        "lab16_chroma_reduction_count": 0
+      },
+      "lcms_max": 0.0032122134136774914,
+      "tetra_p95": 0.2537858805511428,
+      "tri_p95": 0.27992724939618774,
+      "effect_mean": 63.857722895714815
+    },
+    {
+      "look": "hundred_years",
+      "projections": {
+        "input_projection_count": 29943,
+        "output_projection_count": 0,
+        "lab16_chroma_reduction_count": 0
+      },
+      "lcms_max": 0.0028820591760505628,
+      "tetra_p95": 0.16900335619062062,
+      "tri_p95": 0.2684096978766976,
+      "effect_mean": 63.45003122478252
+    },
+    {
+      "look": "classic",
+      "projections": {
+        "input_projection_count": 29943,
+        "output_projection_count": 0,
+        "lab16_chroma_reduction_count": 0
+      },
+      "lcms_max": 0.005552855889800434,
+      "tetra_p95": 1.2623220425211379,
+      "tri_p95": 1.4424708658086893,
+      "effect_mean": 21.455569865095704
+    },
+    {
+      "look": "contemporary",
+      "projections": {
+        "input_projection_count": 29943,
+        "output_projection_count": 0,
+        "lab16_chroma_reduction_count": 0
+      },
+      "lcms_max": 0.006443986615340319,
+      "tetra_p95": 1.2600612506003948,
+      "tri_p95": 1.5731493737703905,
+      "effect_mean": 15.975999540822295
+    },
+    {
+      "look": "bleach",
+      "projections": {
+        "input_projection_count": 29943,
+        "output_projection_count": 0,
+        "lab16_chroma_reduction_count": 0
+      },
+      "lcms_max": 0.0050913281703235235,
+      "tetra_p95": 1.1836750197511516,
+      "tri_p95": 1.789303874667556,
+      "effect_mean": 27.14338263108319
+    },
+    {
+      "look": "blue",
+      "projections": {
+        "input_projection_count": 29943,
+        "output_projection_count": 0,
+        "lab16_chroma_reduction_count": 0
+      },
+      "lcms_max": 0.0031353639955366557,
+      "tetra_p95": 0.4388252806201014,
+      "tri_p95": 0.6063374538311511,
+      "effect_mean": 64.75332758991212
+    },
+    {
+      "look": "brass",
+      "projections": {
+        "input_projection_count": 29943,
+        "output_projection_count": 0,
+        "lab16_chroma_reduction_count": 0
+      },
+      "lcms_max": 0.007428006430276938,
+      "tetra_p95": 1.228420883899712,
+      "tri_p95": 1.598305292199687,
+      "effect_mean": 15.101375815429385
+    },
+    {
+      "look": "chrome",
+      "projections": {
+        "input_projection_count": 29943,
+        "output_projection_count": 0,
+        "lab16_chroma_reduction_count": 0
+      },
+      "lcms_max": 0.005561650463756806,
+      "tetra_p95": 1.042372297790962,
+      "tri_p95": 1.2015683219123048,
+      "effect_mean": 26.449976658086946
+    },
+    {
+      "look": "cine",
+      "projections": {
+        "input_projection_count": 29943,
+        "output_projection_count": 0,
+        "lab16_chroma_reduction_count": 0
+      },
+      "lcms_max": 0.00409078516638415,
+      "tetra_p95": 0.6514498288638569,
+      "tri_p95": 0.7376281149230429,
+      "effect_mean": 35.65481061264877
+    },
+    {
+      "look": "pure",
+      "projections": {
+        "input_projection_count": 29943,
+        "output_projection_count": 0,
+        "lab16_chroma_reduction_count": 0
+      },
+      "lcms_max": 0.004551835647659912,
+      "tetra_p95": 1.1025353451729296,
+      "tri_p95": 1.195425419255915,
+      "effect_mean": 27.6063397782553
+    },
+    {
+      "look": "selenium",
+      "projections": {
+        "input_projection_count": 29943,
+        "output_projection_count": 0,
+        "lab16_chroma_reduction_count": 0
+      },
+      "lcms_max": 0.0033218608971719624,
+      "tetra_p95": 0.15518034234456052,
+      "tri_p95": 0.18508488178107665,
+      "effect_mean": 63.49326572956187
+    },
+    {
+      "look": "sepia",
+      "projections": {
+        "input_projection_count": 29943,
+        "output_projection_count": 0,
+        "lab16_chroma_reduction_count": 0
+      },
+      "lcms_max": 0.0032077093502160758,
+      "tetra_p95": 0.4532734340077356,
+      "tri_p95": 0.535982175325653,
+      "effect_mean": 63.36570817825658
+    },
+    {
+      "look": "silver",
+      "projections": {
+        "input_projection_count": 29943,
+        "output_projection_count": 0,
+        "lab16_chroma_reduction_count": 0
+      },
+      "lcms_max": 0.006972293614093118,
+      "tetra_p95": 1.9295154294965964,
+      "tri_p95": 2.2408550954230715,
+      "effect_mean": 21.04117118370102
+    },
+    {
+      "look": "teal",
+      "projections": {
+        "input_projection_count": 29943,
+        "output_projection_count": 0,
+        "lab16_chroma_reduction_count": 0
+      },
+      "lcms_max": 0.00560344052515248,
+      "tetra_p95": 1.2801147412996137,
+      "tri_p95": 1.541613764747402,
+      "effect_mean": 17.794264120307478
+    }
+  ]
+}

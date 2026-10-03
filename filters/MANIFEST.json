@@ -160,6 +160,17 @@
       "sha256": "e3bd57467ef3d619184f1ec5b13db4ea5b8fd06cf347c9c0ba315f7688a4f58c"
     }
   ],
+  "q1_all_looks": {
+    "directory": "filters/c1/all-looks",
+    "manifest": "filters/c1/all-looks/MANIFEST.json",
+    "looks": 21,
+    "main_strengths": [25, 50, 75, 100],
+    "dual_zero_endpoints": 2,
+    "main_profiles": 86,
+    "attachment_profiles": 120,
+    "total_profiles": 206,
+    "policy": "finite-gamut-native33-v2"
+  },
   "rendered_srgb_archive": {
     "looks": 18,
     "strengths": [
