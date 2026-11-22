@@ -44,7 +44,7 @@ launch-feica-fotos.cmd --resource-dir filters\looks
 
 ## 在 App 中使用滤镜
 
-1. 打开 JPG、DNG 或 RGB PNG。
+1. 打开 JPG、DNG 或 RGB PNG。内含多张照片的 MPO / MPF 格式 JPG 只导入主图，不处理附图，也不修改原文件。
 2. 在颜色、单色或 Artist 分组中选择滤镜，拖动滑块或直接输入强度。
 3. 按 `B` 对照原图，按 `Ctrl+I` 查看滤镜介绍。
 4. 按 `Ctrl+Shift+S` 导出副本，选择一个新文件名。

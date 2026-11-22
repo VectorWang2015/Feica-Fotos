@@ -153,20 +153,79 @@ def _read_image_bytes(path: Path) -> bytes:
     return raw
 
 
-def _jpeg_details(raw: bytes) -> tuple[tuple[int, int], bytes | None]:
-    """Bounded JPEG marker walk: reject non-8-bit and incomplete ICC profiles.
+def _mpo_primary(raw: bytes, primary_end: int, mpf: tuple[int, int, int]) -> bytes:
+    """Check the MP Index against the file; keep only the primary JPEG stream."""
+    marker_start, index_start, marker_end = mpf
+    index = memoryview(raw)[index_start:marker_end]
+    bad = ImageLoadError("Invalid or truncated JPEG multi-picture (MPF) index")
+    endian = {b"II\x2a\x00": "<", b"MM\x00\x2a": ">"}.get(bytes(index[:4]))
+    if endian is None or len(index) < 8:
+        raise bad
+    directory, = struct.unpack_from(endian + "I", index, 4)
+    if not 8 <= directory <= len(index) - 6:
+        raise bad
+    tag_count, = struct.unpack_from(endian + "H", index, directory)
+    directory_end = directory + 2 + 12 * tag_count + 4
+    if directory_end > len(index):
+        raise bad
+    tags = {}
+    for offset in range(directory + 2, directory_end - 4, 12):
+        tag, kind, count, value = struct.unpack_from(endian + "HHII", index, offset)
+        if tag in (0xb001, 0xb002):  # NumberOfImages, MPEntry
+            if tag in tags:
+                raise bad
+            tags[tag] = kind, count, value
+    kind, count, image_count = tags.get(0xb001, (0, 0, 0))
+    entry_kind, entry_bytes, entries_offset = tags.get(0xb002, (0, 0, 0))
+    entries_end = entries_offset + entry_bytes
+    if ((kind, count, entry_kind) != (4, 1, 7) or image_count < 2
+            or entry_bytes != 16 * image_count or not 8 <= entries_offset <= entries_end <= len(index)
+            or not (entries_end <= directory or entries_offset >= directory_end)):
+        raise bad
+    auxiliary = []
+    for offset in range(entries_offset, entries_end, 16):
+        attributes, size, relative_start = struct.unpack_from(endian + "III", index, offset)
+        if attributes & 0x07000000:  # ImageDataFormat must be JPEG.
+            raise bad
+        if offset == entries_offset:
+            if relative_start != 0 or size != primary_end:
+                raise bad
+            continue
+        start = index_start + relative_start
+        end = start + size
+        if (size < 4 or not primary_end <= start < end <= len(raw)
+                or not raw.startswith(b"\xff\xd8", start) or not raw.endswith(b"\xff\xd9", start, end)):
+            raise bad
+        auxiliary.append((start, end))
+    last_end = primary_end
+    for start, end in sorted(auxiliary):
+        if start < last_end:
+            raise bad
+        last_end = end  # Some cameras leave a gap before the next image.
+    if last_end != len(raw):
+        raise bad
+    # Omit the index so Pillow sees a standalone JPEG, not an MPO. Do not
+    # re-encode the main image or discard its other metadata (EXIF, ICC, etc.).
+    view = memoryview(raw)
+    return b"".join((view[:marker_start], view[marker_end:primary_end]))
 
-    Include ICC chunks after SOS, which Pillow's header-only metadata inventory
-    otherwise misses. Entropy decoding remains Pillow's job. Gray/RGB/CMYK8
-    frames are accepted here; unprofiled CMYK is rejected before conversion.
+
+def _jpeg_details(raw: bytes) -> tuple[tuple[int, int], bytes | None, bytes]:
+    """Return dimensions, complete ICC data and the JPEG stream to decode.
+
+    Scan through the primary EOI, including ICC chunks after SOS. Allow more
+    than one stream only when the MP Index accounts for the appended pictures.
+    Pillow still decodes the primary's entropy and checks its image mode.
     """
     if not raw.startswith(b"\xff\xd8") or not raw.endswith(b"\xff\xd9"):
         raise ImageLoadError("JPEG must be a complete SOI/EOI stream; truncated image rejected")
     pos, frame, scans, marker_count = 2, None, 0, 0
     parts, declared_parts = {}, None
+    mpf = None
     sof_codes = {0xc0, 0xc1, 0xc2, 0xc3, 0xc5, 0xc6, 0xc7,
                  0xc9, 0xca, 0xcb, 0xcd, 0xce, 0xcf}
     while pos < len(raw):
+        marker_start = pos
         marker_count += 1
         if marker_count > 1_000_000 or raw[pos] != 0xff:
             raise ImageLoadError("Invalid or excessive JPEG marker sequence")
@@ -177,11 +236,12 @@ def _jpeg_details(raw: bytes) -> tuple[tuple[int, int], bytes | None]:
         code = raw[pos]
         pos += 1
         if code == 0xd9:
-            if pos != len(raw) or frame is None or not scans:
+            if frame is None or not scans or (pos != len(raw) and mpf is None):
                 raise ImageLoadError("Premature or trailing JPEG EOI")
             if declared_parts is not None and set(parts) != set(range(1, declared_parts + 1)):
                 raise ImageLoadError("Incomplete JPEG ICC profile; cannot assume sRGB")
-            return frame, b"".join(parts[n] for n in sorted(parts)) if parts else None
+            icc = b"".join(parts[n] for n in sorted(parts)) if parts else None
+            return frame, icc, raw if mpf is None or pos == len(raw) else _mpo_primary(raw, pos, mpf)
         if code in (0, 1, 0xd8) or 0xd0 <= code <= 0xd7 or pos + 2 > len(raw):
             raise ImageLoadError("Invalid JPEG marker")
         length = int.from_bytes(raw[pos:pos + 2], "big")
@@ -195,6 +255,10 @@ def _jpeg_details(raw: bytes) -> tuple[tuple[int, int], bytes | None]:
             if not 1 <= sequence <= total or sequence in parts or declared_parts not in (None, total):
                 raise ImageLoadError("Invalid JPEG ICC chunk sequence")
             declared_parts, parts[sequence] = total, data[14:]
+        if code == 0xe2 and data.startswith(b"MPF\x00"):
+            if mpf is not None or scans:
+                raise ImageLoadError("Misplaced or duplicate JPEG multi-picture (MPF) index")
+            mpf = marker_start, pos + 6, pos + length
         if code in sof_codes:
             if frame is not None or len(data) < 6:
                 raise ImageLoadError("Invalid JPEG frame")
@@ -237,7 +301,7 @@ def _load_raster(path: Path) -> tuple[np.ndarray, str, dict]:
         if raw[24] != 8 or raw[25] != 2:
             raise ImageLoadError("Only RGB PNG8 is supported; no 16-bit/alpha/palette truncation")
     else:
-        expected_size, jpeg_icc = _jpeg_details(raw)
+        expected_size, jpeg_icc, raw = _jpeg_details(raw)
     if ImageFile.LOAD_TRUNCATED_IMAGES:
         raise ImageLoadError("Pillow truncated-image decoding must remain disabled")
     with warnings.catch_warnings():

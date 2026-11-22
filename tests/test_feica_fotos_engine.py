@@ -51,6 +51,25 @@ def icc_segment(payload, sequence=1, total=1):
     return b"\xff\xe2" + struct.pack(">H", len(chunk) + 2) + chunk
 
 
+def mpo_bytes(primary, auxiliary, *, endian="<", gap=b"", primary_size_delta=0, auxiliary_offset_delta=0):
+    """Make a two-picture MPF with a primary JPEG and one indexed thumbnail."""
+    ifd_end = 8 + 2 + 3 * 12 + 4
+    index_size = ifd_end + 2 * 16
+    index_start = 10  # SOI + APP2 marker + length + MPF signature.
+    primary_size = len(primary) + index_start - 2 + index_size
+    entry = lambda *fields: struct.pack(endian + "HHII", *fields)
+    index = (
+        (b"II" if endian == "<" else b"MM") + struct.pack(endian + "HIH", 42, 8, 3)
+        + struct.pack(endian + "HHI", 0xb000, 7, 4) + b"0100"
+        + entry(0xb001, 4, 1, 2) + entry(0xb002, 7, 32, ifd_end) + b"\0" * 4
+        + struct.pack(endian + "IIIHH", 0x80030000, primary_size + primary_size_delta, 0, 2, 0)
+        + struct.pack(endian + "IIIHH", 0x40010002, len(auxiliary),
+                      primary_size + len(gap) - index_start + auxiliary_offset_delta, 0, 0)
+    )
+    app2 = b"\xff\xe2" + struct.pack(">H", 6 + len(index)) + b"MPF\0" + index
+    return primary[:2] + app2 + primary[2:] + gap + auxiliary
+
+
 def dng_bytes(previews, *, root_icc=None):
     """Tiny classic TIFF with independent JPEG strips; each dict is one IFD."""
     offsets = [8 + i * 400 for i in range(len(previews))]
@@ -483,6 +502,45 @@ class EngineTests(unittest.TestCase):
         with mock.patch.object(ImageCms, "profileToProfile", return_value=Image.new("RGB", (7, 5), (23, 42, 67))):
             converted = self.engine.load_document(path)
             self.assertTrue(np.all(converted.rgb == [23, 42, 67]))
+
+    def test_mpo_jpeg_imports_only_primary_preserving_exif_and_icc(self):
+        profile = ImageCms.ImageCmsProfile(ImageCms.createProfile("sRGB")).tobytes()
+        primary, auxiliary = jpeg_bytes(orientation=6, icc=profile), jpeg_bytes(10, 9)
+        plain = self.root / "primary.jpg"
+        plain.write_bytes(primary)
+        expected = self.engine.load_document(plain)
+        path = self.root / "multi.JPG"
+        for endian in ("<", ">"):
+            with self.subTest(endian=endian):
+                raw = mpo_bytes(primary, auxiliary, endian=endian, gap=b"\xff\x00\xfa" * 150)
+                path.write_bytes(raw)
+                with Image.open(path) as image:
+                    self.assertEqual((image.format, image.n_frames), ("MPO", 2))
+                    image.seek(1)
+                    self.assertEqual(image.size, (10, 9))
+                doc = self.engine.load_document(path)
+                self.assertEqual((doc.source_kind, doc.width, doc.height), ("JPEG", 5, 7))
+                self.assertEqual(doc.source_info, expected.source_info)
+                np.testing.assert_array_equal(doc.rgb, expected.rgb)
+                self.assertEqual(path.read_bytes(), raw)
+
+    def test_malformed_mpo_and_unindexed_tail_still_rejected(self):
+        primary, auxiliary = jpeg_bytes(), jpeg_bytes(3, 2)
+        valid_mpo = mpo_bytes(primary, auxiliary)
+        cases = {
+            "unindexed tail": (primary + auxiliary, "trailing JPEG EOI"),
+            "wrong primary size": (mpo_bytes(primary, auxiliary, primary_size_delta=-2), "MPF"),
+            "wrong auxiliary offset": (mpo_bytes(primary, auxiliary, auxiliary_offset_delta=1), "MPF"),
+            "truncated primary": (mpo_bytes(primary[:-2], auxiliary), "JPEG"),
+            "truncated auxiliary": (mpo_bytes(primary, auxiliary[:-2]), "truncated image"),
+            "unaccounted final image": (valid_mpo + auxiliary, "MPF"),
+        }
+        for label, (raw, message) in cases.items():
+            with self.subTest(label=label):
+                path = self.root / "bad.jpg"
+                path.write_bytes(raw)
+                with self.assertRaisesRegex(engine.ImageLoadError, message):
+                    self.engine.load_document(path)
 
     def test_jpeg_without_icc_rejects_explicit_non_srgb_exif(self):
         path = self.root / "exif-conflict.jpg"
